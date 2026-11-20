@@ -1,0 +1,56 @@
+Format: 1.8
+Date: Tue, 14 Jul 2026 18:00:00 +0800
+Source: libfprint
+Binary: gir1.2-fprint-2.0 libfprint-2-2 libfprint-2-dev libfprint-2-tests libfprint-2-tod-dev libfprint-2-tod1
+Built-For-Profiles: derivative.ubuntu noudeb
+Architecture: amd64
+Version: 1:1.95.1+tod1-0ubuntu1.1
+Distribution: resolute
+Urgency: medium
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Changed-By: Local Builder <root@localhost>
+Description:
+ gir1.2-fprint-2.0 - async fingerprint library of fprint project, gir bindings
+ libfprint-2-2 - async fingerprint library of fprint project, shared libraries
+ libfprint-2-dev - async fingerprint library of fprint project, development headers
+ libfprint-2-tests - Tests for async fingerprint library of fprint project
+ libfprint-2-tod-dev - async fingerprint library of fprint project, drivers development
+ libfprint-2-tod1 - async fingerprint library of fprint project, drivers shared libra
+Changes:
+ libfprint (1:1.95.1+tod1-0ubuntu1.1) resolute; urgency=medium
+ .
+   * Local ELAN 04f3:0c6e fix: accept its 0xaf finger-present response.
+Checksums-Sha1:
+ b8ee09ae3258d13ceafbdd93f06aadac5c823fbb 9434 gir1.2-fprint-2.0_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 191ba7d78638f646f81f848624f56d7f697dc80b 819750 libfprint-2-2-dbgsym_1.95.1+tod1-0ubuntu1.1_amd64.ddeb
+ 923658cd298b1aca31b5addf600214108e925c74 296506 libfprint-2-2_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 11c7108af7eb1d46fbfcae2b6aa7d0cfea20afb7 22024 libfprint-2-dev_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 8b423f2e46fa778825ee8b8ce2f5d48914c9e25a 697464 libfprint-2-tests-dbgsym_1.95.1+tod1-0ubuntu1.1_amd64.ddeb
+ 2e1ba490da5e2828ffbf8d204dde6a14e9c4b3c5 7318594 libfprint-2-tests_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 7c231944c13a7296cfdba217a71324233c1a8fb7 26434 libfprint-2-tod-dev_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 23f3a796592390cea5b7df1d14cd28ed297ac8c6 244406 libfprint-2-tod1-dbgsym_1.95.1+tod1-0ubuntu1.1_amd64.ddeb
+ 53db342fdfbf2c28969e16e3cf55c09d83cff8ed 93368 libfprint-2-tod1_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 8346bd14f004e3ce84ae675a4a694431314c6a74 13700 libfprint_1.95.1+tod1-0ubuntu1.1_amd64.buildinfo
+Checksums-Sha256:
+ e9a7daa7943a063f5c8978661b9d2e3418dddd1f2c04f2bce1cdc21626504c50 9434 gir1.2-fprint-2.0_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ b2a8ed169415c7f82a56987cdf3016027c4a88bc7c367d1590f1705dac636ecc 819750 libfprint-2-2-dbgsym_1.95.1+tod1-0ubuntu1.1_amd64.ddeb
+ a1438c0512589dbad63c652f9637209e2007ccc433e9183788632284067f268b 296506 libfprint-2-2_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 1a6ec221f62f45efa5bc980ac79d4c0f4f6483b9c518e4fb0c90ac39f0faaa03 22024 libfprint-2-dev_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 534325dbc8cf3da25bd5f98ba9d161d60d13c0b0472b28475cb23357d857e62f 697464 libfprint-2-tests-dbgsym_1.95.1+tod1-0ubuntu1.1_amd64.ddeb
+ 3d73cde9e33eb09108b89d1918d536a0fb1784b7d71c402a920f0738d8c6ffa3 7318594 libfprint-2-tests_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 57cc207fcf5afa2e346461efba9aebe11a1835a1e326179ebee5a5b1201d030d 26434 libfprint-2-tod-dev_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 588a7a96f8876b54eebf573033408be1fc72cfdac6ab55310fd6843547b71aaa 244406 libfprint-2-tod1-dbgsym_1.95.1+tod1-0ubuntu1.1_amd64.ddeb
+ 13415011263fb2ca8dcd695ea93de4b49a964a75f14aad95e6abe4d50ee4b2bc 93368 libfprint-2-tod1_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ f474b18dc792779e17f6eca03238c1ae58218b6c71d3e5e8d5499dba9e86397a 13700 libfprint_1.95.1+tod1-0ubuntu1.1_amd64.buildinfo
+Files:
+ d68bb83eaddb82d3f62e826b1b5bbe77 9434 introspection optional gir1.2-fprint-2.0_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ fce1f1dc8ca98c084d86ad6f35ec566c 819750 debug optional libfprint-2-2-dbgsym_1.95.1+tod1-0ubuntu1.1_amd64.ddeb
+ 339670d4366992fc6a13ca5b2d68bc3c 296506 libs optional libfprint-2-2_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 333172b5b18b47b0532c1d1240b5af2d 22024 libdevel optional libfprint-2-dev_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 4017db89040f3a9b2058affa5fa6d558 697464 debug optional libfprint-2-tests-dbgsym_1.95.1+tod1-0ubuntu1.1_amd64.ddeb
+ ba2397025ca7a5c8f538578dd2fc6291 7318594 libs optional libfprint-2-tests_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 794ec0161dc5c047aef5f0108143f334 26434 libdevel optional libfprint-2-tod-dev_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ d38293fb68765de26af3356a2d48350a 244406 debug optional libfprint-2-tod1-dbgsym_1.95.1+tod1-0ubuntu1.1_amd64.ddeb
+ 913353d0b575277e29fea2d7837bc533 93368 libs optional libfprint-2-tod1_1.95.1+tod1-0ubuntu1.1_amd64.deb
+ 75e980782a33577488ebd78116027a96 13700 libs optional libfprint_1.95.1+tod1-0ubuntu1.1_amd64.buildinfo
+Original-Maintainer: FingerForce Team <fingerforce-devel@lists.alioth.debian.org>

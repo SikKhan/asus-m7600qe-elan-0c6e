@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+if command -v udevadm >/dev/null 2>&1; then
+    udevadm control --reload-rules || true
+    udevadm trigger --action=add --subsystem-match=usb \
+        --attr-match=idVendor=04f3 --attr-match=idProduct=0c6e || true
+fi
+
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl try-restart fprintd.service >/dev/null 2>&1 || true
+fi
+
+exit 0

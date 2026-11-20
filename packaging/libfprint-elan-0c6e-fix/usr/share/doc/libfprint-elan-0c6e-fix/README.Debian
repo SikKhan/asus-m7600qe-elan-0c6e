@@ -1,0 +1,16 @@
+libfprint-elan-0c6e-fix for Ubuntu
+---------------------------------
+
+This companion package installs a device-specific udev rule for USB device
+04f3:0c6e. It is intended for the locally patched Ubuntu 26.04 libfprint
+1:1.95.1+tod1-0ubuntu1.1 packages supplied in the same bundle.
+
+The protocol patch prevents the device's 0xaf finger-present response from
+aborting capture. This package handles the independent USB runtime-suspend
+disconnection.
+
+The reader remains exposed as a swipe device. Native tap images are too small
+for libfprint's current NBIS matcher, and verification quality remains dependent
+on swipe angle and speed.
+
+ -- Sikander Khan <skhan1903@outlook.com>, July 2026

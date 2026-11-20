@@ -1,0 +1,11 @@
+Package: libfprint-elan-0c6e-fix
+Version: 1.0.0-1
+Section: admin
+Priority: optional
+Architecture: all
+Maintainer: Sikander Khan <skhan1903@outlook.com>
+Depends: libfprint-2-2 (= 1:1.95.1+tod1-0ubuntu1.1), libfprint-2-tod1 (= 1:1.95.1+tod1-0ubuntu1.1), udev
+Description: runtime power workaround for ELAN 04f3:0c6e
+ Keeps USB runtime power management disabled for the ELAN 04f3:0c6e
+ fingerprint reader. This prevents the reader from disconnecting during
+ enrollment and verification on the ASUS M7600QE.

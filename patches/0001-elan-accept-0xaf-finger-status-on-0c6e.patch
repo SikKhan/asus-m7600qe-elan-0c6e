@@ -1,0 +1,56 @@
+From 882b64152df2a78b868cb927fc5dd91a1db8c768 Mon Sep 17 00:00:00 2001
+From: Sikander Khan <skhan1903@outlook.com>
+Date: Tue, 14 Jul 2026 00:42:56 +0800
+Subject: [PATCH] elan: accept 0xaf finger status on 0c6e
+
+ELAN 04f3:0c6e reports a present finger with status 0xaf, while the generic ELAN path only accepts 0x55. This causes capture to abort with a protocol error and fprintd to report enroll-disconnected.
+
+Assign a device-specific type to 0c6e and accept 0xaf only for that device, avoiding changes to the meaning of 0xaf for other ELAN readers.
+---
+ libfprint/drivers/elan.c | 7 ++++++-
+ libfprint/drivers/elan.h | 3 ++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/libfprint/drivers/elan.c b/libfprint/drivers/elan.c
+index f9cc52f..ed0589c 100644
+--- a/libfprint/drivers/elan.c
++++ b/libfprint/drivers/elan.c
+@@ -552,8 +552,13 @@ capture_run_state (FpiSsm *ssm, FpDevice *dev)
+     case CAPTURE_READ_DATA:
+       /* 0x55 - finger present
+        * 0xff - device not calibrated (probably) */
+-      if (self->last_read && self->last_read[0] == 0x55)
++      if (self->last_read &&
++          (self->last_read[0] == 0x55 ||
++           (self->dev_type == ELAN_0C6E && self->last_read[0] == 0xaf)))
+         {
++          /* 0x0c6e uses 0xaf to report a present finger.  Other ELAN
++           * devices use the same value for a removed finger or a busy
++           * sensor, so keep this quirk device-specific. */
+           fpi_image_device_report_finger_status (idev, TRUE);
+           elan_run_cmd (ssm, dev, &get_image_cmd, ELAN_CMD_TIMEOUT);
+         }
+diff --git a/libfprint/drivers/elan.h b/libfprint/drivers/elan.h
+index 6bbaae0..7a1afd8 100644
+--- a/libfprint/drivers/elan.h
++++ b/libfprint/drivers/elan.h
+@@ -32,6 +32,7 @@
+ #define ELAN_0C03 (1 << 1)
+ #define ELAN_0C42 (1 << 2)
+ #define ELAN_0C58 (1 << 3)
++#define ELAN_0C6E (1 << 4)
+ 
+ /* devices which don't require frame rotation before assembling */
+ #define ELAN_NOT_ROTATED ELAN_0C03
+@@ -222,7 +223,7 @@ static const FpIdEntry elan_id_table[] = {
+   {.vid = ELAN_VEND_ID,  .pid = 0x0c4d, .driver_data = ELAN_ALL_DEV},
+   {.vid = ELAN_VEND_ID,  .pid = 0x0c4f, .driver_data = ELAN_ALL_DEV},
+   {.vid = ELAN_VEND_ID,  .pid = 0x0c63, .driver_data = ELAN_ALL_DEV},
+-  {.vid = ELAN_VEND_ID,  .pid = 0x0c6e, .driver_data = ELAN_ALL_DEV},
++  {.vid = ELAN_VEND_ID,  .pid = 0x0c6e, .driver_data = ELAN_0C6E},
+   {.vid = ELAN_VEND_ID,  .pid = 0x0c58, .driver_data = ELAN_0C58},
+   {.vid = 0,  .pid = 0,  .driver_data = 0},
+ };
+-- 
+2.53.0
+

@@ -1,0 +1,8 @@
+# Large, reproducible working trees and package-index cache
+/apt-source-cache/
+/ubuntu-source/
+/upstream-libfprint/
+
+# Local agent metadata
+/.agents/
+/.codex/

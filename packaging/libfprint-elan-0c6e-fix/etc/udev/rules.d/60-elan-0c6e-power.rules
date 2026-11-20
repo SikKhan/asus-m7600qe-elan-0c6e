@@ -1,0 +1,2 @@
+# ELAN 04f3:0c6e disconnects during capture when USB runtime suspend is enabled.
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="04f3", ATTR{idProduct}=="0c6e", TEST=="power/control", ATTR{power/control}="on"
