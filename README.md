@@ -71,8 +71,8 @@ libfprint-2-2 libfprint-2-tod1` and install that official version instead.
 ## Layout
 
 ```text
-packages/runtime/       installable runtime .deb files
-packages/development/   development, test, and debug packages
+packages/runtime/       runtime .deb files (inside the release ZIP)
+packages/development/   development, test, and debug packages (release ZIP)
 packaging/              source for the companion udev package
 source-package/         original Ubuntu source-package files and build records
 patches/                standalone upstream patch
